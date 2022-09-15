@@ -1,13 +1,12 @@
-import "./App.css";
-import BackendContextProvider from "./components/contextProviders/BackendContextProvider";
-import HomeView from "./views/HomeView";
+import GlobalContextsProvider from "./components/GlobalContextsProvider";
+import View from "./View";
 
 export default function App() {
 	return (
 		<div className="App">
-			<BackendContextProvider>
-				<HomeView />
-			</BackendContextProvider>
+			<GlobalContextsProvider>
+				<View />
+			</GlobalContextsProvider>
 		</div>
 	);
 }
