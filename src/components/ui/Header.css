@@ -1,0 +1,37 @@
+.header {
+	height: var(--header-height);
+	padding: 0 var(--padding-x);
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	color: white;
+	background-color: var(--color-accent);
+}
+
+.header__content {
+	height: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.header__brand {
+	font-weight: bold;
+	font-size: 1.2rem;
+}
+
+.header__right-side {
+	display: flex;
+	align-items: center;
+}
+
+.header__account {
+	margin-right: 0.5rem;
+}
+
+.header__btn {
+	height: 2rem;
+	margin-left: 0.5rem;
+	padding: 0 0.5rem;
+}

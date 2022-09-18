@@ -13,11 +13,14 @@ export default class TodoService {
 	}
 
 	static async create(todo: Todo): Promise<CreateTodoResponse> {
-		return await HttpClient.post(this.endpoint, todo);
+		return await HttpClient.post(this.endpoint, JSON.stringify(todo));
 	}
 
 	static async update(todo: Todo): Promise<UpdateTodoResponse> {
-		return await HttpClient.put(`${this.endpoint}/${todo.id}`, todo);
+		return await HttpClient.put(
+			`${this.endpoint}/${todo.id}`,
+			JSON.stringify(todo)
+		);
 	}
 
 	static async delete(todo: Todo): Promise<DeleteTodoResponse> {

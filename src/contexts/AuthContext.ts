@@ -5,7 +5,9 @@ interface IAuthContext {
 	isLoggedIn: boolean;
 	username: string | null;
 	login: (username: string) => void;
+	loginAndRemember: (username: string) => void;
 	logout: () => void;
+	tryAutoLogin: () => boolean;
 }
 
 export const [AuthContext, useAuthContext] = buildContext<IAuthContext>();
@@ -19,8 +21,23 @@ export function buildAuthContextValue(): IAuthContext {
 		setUsername(username);
 	};
 
+	const loginAndRemember = (username: string) => {
+		login(username);
+		localStorage.setItem("username", username);
+	};
+
 	const logout = () => {
 		setUsername(null);
+		localStorage.removeItem("username");
+	};
+
+	const tryAutoLogin = () => {
+		const savedUsername = localStorage.getItem("username");
+		if (savedUsername) {
+			login(savedUsername);
+			return true;
+		}
+		return false;
 	};
 
 	useEffect(() => {
@@ -35,6 +52,8 @@ export function buildAuthContextValue(): IAuthContext {
 		isLoggedIn,
 		username,
 		login,
+		loginAndRemember,
 		logout,
+		tryAutoLogin,
 	};
 }

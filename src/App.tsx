@@ -1,12 +1,14 @@
-import GlobalContextsProvider from "./components/GlobalContextsProvider";
-import View from "./View";
+import "./App.css";
+import { useAuthContext } from "./contexts/AuthContext";
+import HomeView from "./views/HomeView";
+import LoginView from "./views/LoginView";
 
 export default function App() {
-	return (
-		<div className="App">
-			<GlobalContextsProvider>
-				<View />
-			</GlobalContextsProvider>
-		</div>
-	);
+	const authCtx = useAuthContext();
+
+	if (!authCtx.isLoggedIn) {
+		return <LoginView />;
+	} else {
+		return <HomeView />;
+	}
 }

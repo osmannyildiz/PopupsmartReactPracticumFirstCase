@@ -1,0 +1,23 @@
+.todo-list-item {
+	padding: 1rem 1.5rem 1rem 1.25rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.25);
+}
+
+.todo-list-item__left-side,
+.todo-list-item__right-side {
+	display: flex;
+	align-items: center;
+}
+
+.todo-list-item__complete-btn {
+	height: unset;
+	margin-right: 0.35rem;
+	padding: 0.25rem;
+}
+
+.todo-list-item__action-btn {
+	margin-left: 0.5rem;
+}

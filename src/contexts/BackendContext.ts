@@ -5,8 +5,10 @@ import buildContext from "../utils/buildContext";
 
 interface IBackendContext {
 	todos: Todo[] | null;
-	isFetchingTodos: boolean;
-	fetchTodos: () => void;
+	fetchTodos: () => Promise<void>;
+	addTodo: (content: string) => Promise<void>;
+	updateTodo: (todo: Todo) => Promise<void>;
+	deleteTodo: (todo: Todo) => Promise<void>;
 }
 
 export const [BackendContext, useBackendContext] =
@@ -15,43 +17,33 @@ export const [BackendContext, useBackendContext] =
 export function buildBackendContextValue(): IBackendContext {
 	const [todos, setTodos] = useState<Todo[] | null>(null);
 
-	const [isFetchingTodos, setIsFetchingTodos] = useState(false);
-
 	const fetchTodos = async () => {
-		console.log("hey start");
-		await new Promise((resolve, reject) => {
-			setTimeout(resolve, 3000);
-		});
-
-		console.log("hey setisfetch");
-		setIsFetchingTodos(true);
-		await new Promise((resolve, reject) => {
-			setTimeout(resolve, 3000);
-		});
-
-		console.log("hey fetch start");
 		const resp = await TodoService.getAll();
-
-		console.log("hey fetch end");
-		await new Promise((resolve, reject) => {
-			setTimeout(resolve, 3000);
-		});
-
-		console.log("hey set todos");
 		setTodos(resp);
-		await new Promise((resolve, reject) => {
-			setTimeout(resolve, 3000);
-		});
+	};
 
-		console.log("hey setisfetch");
-		setIsFetchingTodos(false);
+	const addTodo = async (content: string) => {
+		const todo: Todo = {
+			id: undefined,
+			content: content,
+			isCompleted: false,
+		};
+		const resp = await TodoService.create(todo);
+	};
 
-		console.log("hey end");
+	const updateTodo = async (todo: Todo) => {
+		const resp = await TodoService.update(todo);
+	};
+
+	const deleteTodo = async (todo: Todo) => {
+		const resp = await TodoService.delete(todo);
 	};
 
 	return {
 		todos,
-		isFetchingTodos,
 		fetchTodos,
+		addTodo,
+		updateTodo,
+		deleteTodo,
 	};
 }

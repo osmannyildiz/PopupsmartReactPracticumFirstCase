@@ -1,0 +1,15 @@
+.todo-list__info {
+	margin: 1rem 0;
+	font-weight: bold;
+	font-size: 2.5rem;
+	text-align: center;
+}
+
+.todo-list__ul {
+	list-style: none;
+	padding-left: 0;
+}
+
+.todo-list__item {
+	margin-bottom: 0.75rem;
+}

@@ -4,10 +4,11 @@ import {
 	buildBackendContextValue,
 } from "../contexts/BackendContext";
 import { buildUiContextValue, UiContext } from "../contexts/UiContext";
+import { Children } from "../utils/propTypes";
 
-type Props = {
-	children: React.ReactNode;
-};
+interface Props {
+	children: Children;
+}
 
 export default function GlobalContextsProvider({ children }: Props) {
 	const authContextValue = buildAuthContextValue();

@@ -1,0 +1,31 @@
+.login-panel {
+	/* max-width: 35rem; */
+	margin: 0 auto;
+	padding: 2rem 1rem;
+}
+
+.login-panel-form {
+	max-width: 25rem;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.login-panel-form__heading {
+	margin-top: 1rem;
+	margin-bottom: 0.25rem;
+}
+
+.login-panel-form__subheading {
+	margin-top: 0.25rem;
+	margin-bottom: 1rem;
+}
+
+.login-panel-form__input {
+	width: 100%;
+	margin-top: 0.75rem;
+	text-align: center;
+}
+
+.login-panel-form__btn {
+	margin-top: 1rem;
+}

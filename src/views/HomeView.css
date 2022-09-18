@@ -1,0 +1,9 @@
+.home-view > * {
+	max-width: 800px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.home-view__spinner {
+	margin-bottom: 1rem;
+}

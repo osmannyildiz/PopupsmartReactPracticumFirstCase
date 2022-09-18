@@ -1,14 +1,17 @@
+import { Children } from "../../utils/propTypes";
 import Header from "../ui/Header";
 
-type Props = {
-	children: React.ReactNode;
-};
+interface Props {
+	children: Children;
+}
 
 export default function MainLayout({ children }: Props) {
 	return (
 		<>
 			<Header />
-			<main>{children}</main>
+			<main>
+				<div className="main__content container">{children}</div>
+			</main>
 		</>
 	);
 }

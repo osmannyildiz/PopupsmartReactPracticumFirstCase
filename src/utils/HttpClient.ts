@@ -34,6 +34,9 @@ export default class HttpClient {
 		return await this._sendRequest(url, {
 			method: "POST",
 			body: body,
+			headers: {
+				"Content-Type": "application/json",
+			},
 		});
 	}
 
@@ -41,6 +44,9 @@ export default class HttpClient {
 		return await this._sendRequest(url, {
 			method: "PUT",
 			body: body,
+			headers: {
+				"Content-Type": "application/json",
+			},
 		});
 	}
 

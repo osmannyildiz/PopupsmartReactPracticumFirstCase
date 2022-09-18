@@ -1,0 +1,139 @@
+/* #root {
+	max-width: 1280px;
+	margin: 0 auto;
+	padding: 2rem;
+	text-align: center;
+} */
+
+/* :root {
+	font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+	font-size: 16px;
+	line-height: 24px;
+	font-weight: 400;
+}
+
+button {
+	font-size: 1em;
+	font-weight: 500;
+}
+button:hover {
+	border-color: #646cff;
+} */
+
+:root {
+	--color-fg: #343337;
+	--color-bg: #f8f7f8;
+	--color-accent: #ea2b2d;
+	--max-width: 1200px;
+	--padding-x: 2rem;
+	--header-height: 3rem;
+	--transition-duration: 200ms;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	/* margin: 0 1rem 4rem 1rem; */
+	padding-top: var(--header-height); /* For navbar */
+	color: var(--color-fg);
+	background-color: var(--color-bg);
+	font-family: "Nunito", sans-serif;
+}
+
+main {
+	padding: 1rem var(--padding-x) 4rem var(--padding-x);
+}
+
+.container {
+	width: 100%;
+	max-width: var(--max-width);
+	margin: 0 auto;
+	position: relative;
+}
+
+.center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+
+.mx-auto {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.input {
+	height: 2.5rem;
+	padding: 0.5rem 0.75rem;
+	color: inherit;
+	background-color: white;
+	border: 2px solid var(--color-fg);
+	border-radius: 0.3rem;
+	font-size: 1rem;
+	transition-property: box-shadow, border-color;
+	transition-duration: var(--transition-duration);
+}
+.input:focus,
+.input:active {
+	box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.25);
+	border-color: var(--color-accent);
+	outline: none;
+}
+
+.btn {
+	height: 2.5rem;
+	padding: 0.5rem 1.5rem;
+	display: flex;
+	align-items: center;
+	border-radius: 0.3rem;
+	font-family: inherit;
+	font-size: 1rem;
+	cursor: pointer;
+	outline: none;
+	transition-property: box-shadow, filter, background-color;
+	transition-duration: var(--transition-duration);
+}
+.btn:hover,
+.btn:focus,
+.btn:active {
+	box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.25);
+	filter: brightness(1.05);
+}
+.btn:disabled {
+	color: white !important;
+	background-color: var(--color-fg) !important;
+	cursor: not-allowed;
+}
+
+.btn--primary {
+	color: white;
+	background-color: var(--color-accent);
+	border: none;
+}
+
+.btn--white {
+	color: var(--color-fg);
+	background-color: white;
+	border: 2px solid var(--color-fg);
+}
+
+.btn--plain {
+	color: var(--color-fg);
+	background-color: rgba(0, 0, 0, 0);
+	border: none;
+}
+.btn--plain:hover,
+.btn--plain:focus,
+.btn--plain:active {
+	box-shadow: none;
+	filter: none;
+	background-color: rgba(0, 0, 0, 0.1);
+}
+
+.btn > :nth-child(2) {
+	margin-left: 0.25rem;
+}
