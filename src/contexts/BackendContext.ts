@@ -7,7 +7,8 @@ interface IBackendContext {
 	todos: Todo[] | null;
 	fetchTodos: () => Promise<void>;
 	addTodo: (content: string) => Promise<void>;
-	updateTodo: (todo: Todo) => Promise<void>;
+	updateTodoContent: (todo: Todo, newContent: string) => Promise<void>;
+	updateTodoIsCompleted: (todo: Todo, newIsCompleted: boolean) => Promise<void>;
 	deleteTodo: (todo: Todo) => Promise<void>;
 }
 
@@ -31,8 +32,14 @@ export function buildBackendContextValue(): IBackendContext {
 		const resp = await TodoService.create(todo);
 	};
 
-	const updateTodo = async (todo: Todo) => {
-		const resp = await TodoService.update(todo);
+	const updateTodoContent = async (todo: Todo, newContent: string) => {
+		const updatedTodo = { ...todo, content: newContent };
+		const resp = await TodoService.update(updatedTodo);
+	};
+
+	const updateTodoIsCompleted = async (todo: Todo, newIsCompleted: boolean) => {
+		const updatedTodo = { ...todo, isCompleted: newIsCompleted };
+		const resp = await TodoService.update(updatedTodo);
 	};
 
 	const deleteTodo = async (todo: Todo) => {
@@ -43,7 +50,8 @@ export function buildBackendContextValue(): IBackendContext {
 		todos,
 		fetchTodos,
 		addTodo,
-		updateTodo,
+		updateTodoContent,
+		updateTodoIsCompleted,
 		deleteTodo,
 	};
 }

@@ -38,8 +38,7 @@ export default function TodoListItem({ className, todo }: Props) {
 	const onCompleteBtnClick = async () => {
 		setCompleteBtnIconProps(loadingIconProps);
 		const newIsCompleted = !todo.isCompleted;
-		const updatedTodo = { ...todo, isCompleted: newIsCompleted };
-		await backendCtx.updateTodo(updatedTodo);
+		await backendCtx.updateTodoIsCompleted(todo, newIsCompleted);
 
 		uiCtx.setIsSpinnerVisible(true);
 		await backendCtx.fetchTodos();
@@ -60,8 +59,7 @@ export default function TodoListItem({ className, todo }: Props) {
 		setEditCompleteBtnIconProps(loadingIconProps);
 		const newContent = contentInputElRef.current?.value;
 		if (newContent) {
-			const updatedTodo = { ...todo, content: newContent };
-			await backendCtx.updateTodo(updatedTodo);
+			await backendCtx.updateTodoContent(todo, newContent);
 
 			uiCtx.setIsSpinnerVisible(true);
 			await backendCtx.fetchTodos();
