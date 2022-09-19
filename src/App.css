@@ -1,24 +1,4 @@
-/* #root {
-	max-width: 1280px;
-	margin: 0 auto;
-	padding: 2rem;
-	text-align: center;
-} */
-
-/* :root {
-	font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
-	font-size: 16px;
-	line-height: 24px;
-	font-weight: 400;
-}
-
-button {
-	font-size: 1em;
-	font-weight: 500;
-}
-button:hover {
-	border-color: #646cff;
-} */
+/* ===== BASE ===== */
 
 :root {
 	--color-fg: #343337;
@@ -36,8 +16,7 @@ button:hover {
 
 body {
 	margin: 0;
-	/* margin: 0 1rem 4rem 1rem; */
-	padding-top: var(--header-height); /* For navbar */
+	padding-top: var(--header-height); /* For header */
 	color: var(--color-fg);
 	background-color: var(--color-bg);
 	font-family: "Nunito", sans-serif;
@@ -47,24 +26,7 @@ main {
 	padding: 1rem var(--padding-x) 4rem var(--padding-x);
 }
 
-.container {
-	width: 100%;
-	max-width: var(--max-width);
-	margin: 0 auto;
-	position: relative;
-}
-
-.center {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	text-align: center;
-}
-
-.mx-auto {
-	margin-left: auto;
-	margin-right: auto;
-}
+/* ===== ELEMENTS ===== */
 
 .input {
 	height: 2.5rem;
@@ -136,4 +98,25 @@ main {
 
 .btn > :nth-child(2) {
 	margin-left: 0.25rem;
+}
+
+/* ===== UTILITIES ===== */
+
+.container {
+	width: 100%;
+	max-width: var(--max-width);
+	margin: 0 auto;
+	position: relative;
+}
+
+.center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+
+.mx-auto {
+	margin-left: auto;
+	margin-right: auto;
 }
