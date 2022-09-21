@@ -1,15 +1,18 @@
 import Icon from "@mdi/react";
 import { useEffect, useState } from "react";
 import { useAuthContext } from "../../contexts/AuthContext";
+import { useUiContext } from "../../contexts/UiContext";
 import {
 	darkThemeIconProps,
 	lightThemeIconProps,
 	logoutIconProps,
 } from "../../utils/iconProps";
 import "./Header.css";
+import HeaderBtn from "./HeaderBtn";
 
 export default function Header() {
 	const authCtx = useAuthContext();
+	const uiCtx = useUiContext();
 	const [themeBtnIconProps, setThemeBtnIconProps] =
 		useState(lightThemeIconProps);
 
@@ -27,21 +30,20 @@ export default function Header() {
 					{authCtx.isLoggedIn ? (
 						<>
 							<span className="header__account">Hello, {authCtx.username}</span>
-							<button
-								type="button"
-								className="header__btn btn btn--white"
+							<HeaderBtn
+								className="header__btn"
 								title="Switch theme"
+								onClick={() => uiCtx.toggleTheme()}
 							>
 								<Icon size="1.25rem" {...themeBtnIconProps} />
-							</button>
-							<button
-								type="button"
-								className="header__btn btn btn--white"
+							</HeaderBtn>
+							<HeaderBtn
+								className="header__btn"
 								title="Logout"
 								onClick={() => authCtx.logout()}
 							>
 								<Icon size="1.25rem" {...logoutIconProps} />
-							</button>
+							</HeaderBtn>
 						</>
 					) : (
 						<span>Organize your life.</span>

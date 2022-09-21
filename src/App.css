@@ -1,14 +1,27 @@
-/* ===== BASE ===== */
+/* ===== VARIABLES ===== */
 
 :root {
-	--color-fg: #343337;
-	--color-bg: #f8f7f8;
-	--color-accent: #ea2b2d;
 	--max-width: 1200px;
 	--padding-x: 2rem;
 	--header-height: 3rem;
 	--transition-duration: 200ms;
 }
+
+body {
+	--color-fg: #343337;
+	--color-bg: #f8f7f8;
+	--color-elevated: white;
+	--color-accent: #ea2b2d;
+}
+
+body.theme-dark {
+	--color-fg: #fefefe;
+	--color-bg: #15111b;
+	--color-elevated: #282033;
+	--color-accent: #ec3d3f;
+}
+
+/* ===== BASE ===== */
 
 * {
 	box-sizing: border-box;
@@ -32,7 +45,7 @@ main {
 	height: 2.5rem;
 	padding: 0.5rem 0.75rem;
 	color: inherit;
-	background-color: white;
+	background-color: var(--color-elevated);
 	border: 2px solid var(--color-fg);
 	border-radius: 0.3rem;
 	font-size: 1rem;
@@ -66,20 +79,20 @@ main {
 	filter: brightness(1.05);
 }
 .btn:disabled {
-	color: white !important;
+	color: var(--color-elevated) !important;
 	background-color: var(--color-fg) !important;
 	cursor: not-allowed;
 }
 
 .btn--primary {
-	color: white;
+	color: var(--color-elevated);
 	background-color: var(--color-accent);
 	border: none;
 }
 
 .btn--white {
 	color: var(--color-fg);
-	background-color: white;
+	background-color: var(--color-elevated);
 	border: 2px solid var(--color-fg);
 }
 
