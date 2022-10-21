@@ -11,6 +11,10 @@ export default class ThemeManager {
 		localStorage.setItem("theme", theme);
 	}
 
+	static useLightTheme() {
+		this.useTheme(UiTheme.LIGHT);
+	}
+
 	static useDarkTheme() {
 		this.useTheme(UiTheme.DARK);
 	}

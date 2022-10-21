@@ -6,7 +6,7 @@ import ThemeManager from "../utils/ThemeManager";
 interface IUiContext {
 	isSpinnerVisible: boolean;
 	setIsSpinnerVisible: (isSpinnerVisible: boolean) => void;
-	theme: UiTheme;
+	theme: UiTheme | null;
 	toggleTheme: () => void;
 	trySavedTheme: () => void;
 }
@@ -16,10 +16,10 @@ export const [UiContext, useUiContext] = buildContext<IUiContext>();
 export function buildUiContextValue(): IUiContext {
 	const [isSpinnerVisible, setIsSpinnerVisible] = useState(false);
 
-	const [theme, setTheme] = useState(UiTheme.LIGHT);
+	const [theme, setTheme] = useState<UiTheme | null>(null);
 
 	const toggleTheme = () => {
-		if (theme === UiTheme.LIGHT) {
+		if (!theme || theme === UiTheme.LIGHT) {
 			setTheme(UiTheme.DARK);
 		} else {
 			setTheme(UiTheme.LIGHT);
@@ -35,6 +35,9 @@ export function buildUiContextValue(): IUiContext {
 
 	useEffect(() => {
 		switch (theme) {
+			case UiTheme.LIGHT:
+				ThemeManager.useLightTheme();
+				break;
 			case UiTheme.DARK:
 				ThemeManager.useDarkTheme();
 				break;

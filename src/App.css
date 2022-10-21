@@ -79,8 +79,8 @@ main {
 	filter: brightness(1.05);
 }
 .btn:disabled {
-	color: var(--color-elevated) !important;
-	background-color: var(--color-fg) !important;
+	color: var(--color-elevated);
+	background-color: var(--color-fg);
 	cursor: not-allowed;
 }
 
